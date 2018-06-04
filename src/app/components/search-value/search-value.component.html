@@ -1,0 +1,10 @@
+<div class="columns large-12">
+    <input class="query" id="{{ id }}" type="text" [(ngModel)]="query" (keyup)="updateResult()" placeholder="Enter a query..."><button class="button jqueryUpdateButton" style="display: none" (click)="updateResult()"></button>
+</div>
+<div class="columns large-12">
+    <div>{{ result }}</div>
+</div>
+
+<div class="columns">
+    {{ error }}
+</div>

@@ -1,0 +1,3 @@
+<textarea [(ngModel)]="rawInput" rows="30" placeholder="Enter some json data..." (keyup)="invalidate()"></textarea>
+
+<button class="button" (click)="submitJson()">Submit</button> {{ validationStatus }}
