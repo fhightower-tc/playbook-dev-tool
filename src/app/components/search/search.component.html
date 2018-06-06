@@ -2,6 +2,4 @@
     <search-value></search-value><!-- <i class="fa fa-trash-o" (click)="deleteSearchValue()"></i> -->
 </div>
 
-<div class="columns">
-    <button class="button" (click)="addNewSearch()">Add new search value</button>
-</div>
+<button class="button secondary columns" (click)="addNewSearch()" *ngIf="data.validationStatus === 'Validated'">Add new search value</button>

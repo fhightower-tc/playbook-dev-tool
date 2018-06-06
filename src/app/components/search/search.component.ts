@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DataService } from '../../services/data.service';
+
 @Component({
     selector: 'search',
     templateUrl: './search.component.html',
@@ -8,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class SearchComponent implements OnInit {
     searchValues: string[] = [];
 
-    constructor() { }
+    constructor(
+        private data: DataService
+    ) { }
 
     ngOnInit() {}
 

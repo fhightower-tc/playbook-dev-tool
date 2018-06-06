@@ -1,10 +1,16 @@
 <div class="columns large-12">
-    <input class="query" id="{{ id }}" type="text" [(ngModel)]="query" (keyup)="updateResult()" placeholder="Enter a query..."><button class="button jqueryUpdateButton" style="display: none" (click)="updateResult()"></button>
+    <div class="columns large-11">
+        <input class="query" id="{{ id }}" type="text" [(ngModel)]="query" (keyup)="updateResult()" placeholder="Enter a query...">
+    </div>
+    <i class="fa fa-copy columns large-1" title="Copy this query" (click)="copyQuery()"></i>
+    <button class="button jqueryUpdateButton" style="display: none" (click)="updateResult()"></button>
 </div>
 <div class="columns large-12">
-    <div>{{ result | json }}</div>
+    <div class="columns" style="display: inline;">{{ result | json }} &nbsp;<i class="fa fa-copy" title="Copy this result" (click)="copyResult()"></i></div>
 </div>
 
 <div class="columns">
     {{ error }}
 </div>
+
+<br><br><br><br><br>

@@ -23,7 +23,6 @@ function parseJson(content: string) {
 })
 export class JsonInputComponent implements OnInit {
     rawInput: string = '';
-    validationStatus: string = 'Unvalidated';
 
     constructor(
         private data: DataService
@@ -34,16 +33,17 @@ export class JsonInputComponent implements OnInit {
     submitJson() {
         try {
             this.data.jsonData = JSON.parse(this.rawInput);
-            this.validationStatus = 'Validated';
+            this.data.validationStatus = 'Validated';
             this.rawInput = JSON.stringify(this.data.jsonData, null, 4);
             parseJson(this.rawInput);
             window.setTimeout(function() {
+                // TODO: hide the input modal
                 $('.jqueryUpdateButton').each(function() {
                     $(this).click();
                 });
             }, 100);
         } catch(err) {
-            this.validationStatus = 'Error - ' + err.message;
+            this.data.validationStatus = 'Error - ' + err.message;
         }
         // TODO: when submitting a new json, rerun all of the queries against the new content...
     }
@@ -66,7 +66,7 @@ export class JsonInputComponent implements OnInit {
     }
 
     invalidate() {
-        this.validationStatus = 'Unvalidated';
+        this.data.validationStatus = 'Unvalidated';
         // clear the div in which the json is rendered
         // $('#json-renderer').text('');
     }

@@ -30,6 +30,14 @@ export class SearchValueComponent implements OnInit {
         }, 100);
     }
 
+    copyQuery() {
+        // TODO: implement
+    }
+
+    copyResult() {
+        // TODO: implement
+    }
+
     autocomplete() {
         // if (this.query[this.query.length - 1] === '[') {
         //     this.query = this.query + ']'
