@@ -6,6 +6,11 @@ import { JsonInputComponent } from '../json-input/json-input.component';
 
 declare var $:any;
 
+let AUTOCOMPLETE_MAPPINGS = {
+    '[': ']',
+    '(': ')'
+}
+
 @Component({
     selector: 'search-value',
     templateUrl: './search-value.component.html',
@@ -39,10 +44,16 @@ export class SearchValueComponent implements OnInit {
     }
 
     autocomplete() {
-        // if (this.query[this.query.length - 1] === '[') {
-        //     this.query = this.query + ']'
-        // }
-        // TODO: implement
+        // TODO: change this to look at the last character the user typed rather than the last character in the input field (this will handle nested [] and () better)
+        var lastChar = this.query[this.query.length - 1];
+        if (lastChar in AUTOCOMPLETE_MAPPINGS) {
+            this.query = this.query + AUTOCOMPLETE_MAPPINGS[lastChar];
+            let _this = this;
+            window.setTimeout(function() {
+                let newCursorPosition = _this.query.length - 1;
+                document.getElementById('' + _this.id).setSelectionRange(newCursorPosition, newCursorPosition);
+            }, 10);
+        }
     }
 
     updateResult() {
