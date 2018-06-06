@@ -7,3 +7,59 @@
 @import url('assets/less/app.less');
 @import url('assets/less/spaces.less');
 
+/* Syntax highlighting for JSON objects */
+ul.json-dict, ul.json-array {
+  list-style-type: none;
+  margin: 0 0 0 1px;
+  border-left: 1px dotted #666666;
+  padding-left: 2em;
+}
+.json-string {
+  color: #0B7500;
+}
+.json-literal {
+  color: #0072CE;
+  font-weight: bold;
+}
+
+/* Toggle button */
+a.json-toggle {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+}
+a.json-toggle:focus {
+  outline: none;
+}
+a.json-toggle:before {
+  color: #aaa;
+  content: "\25BC"; /* down arrow */
+  position: absolute;
+  display: inline-block;
+  width: 1em;
+  left: -1em;
+}
+a.json-toggle.collapsed:before {
+  content: "\25B6"; /* left arrow */
+}
+
+/* Collapsable placeholder links */
+a.json-placeholder {
+  color: #aaa;
+  padding: 0 1em;
+  text-decoration: none;
+}
+a.json-placeholder:hover {
+  text-decoration: underline;
+}
+
+/* Copy path icon */
+.pick-path {
+  color: lightgray;
+  cursor: pointer;
+  margin-left: 3px;
+}
+
+.pick-path:hover {
+  color: darkgray;
+}

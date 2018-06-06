@@ -42,7 +42,7 @@ export class SearchValueComponent implements OnInit {
         this.query = $('#' + this.id).val();
         this.autocomplete();
         let response = this.jsonComponent.search(this.query);
-        this.result = JSON.stringify(response.results);
+        this.result = response.results[0];
         this.error = response.error;
     }
 }
