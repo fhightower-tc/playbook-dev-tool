@@ -1,6 +1,6 @@
-# JSON Pathfinder
+# Playbook Dev Tool
 
-ThreatConnect Spaces app to validate and explore json.
+Spaces app with tools to aid playbook development like JSON path search, JMES search, regex filtering, and more.
 
 ## Getting Started
 
@@ -44,7 +44,7 @@ ng generate component <COMPONENT_NAME>
 make pack
 ```
 
-This will package the app as `target/TCS_-_JSON_Pathfinder.tcx`.
+This will package the app as `target/TCS_-_Playbook_Dev_Tool.tcx`.
 
 ## Build App in Development Mode (does not minify or uglify code, so it can be debugged in browser)
 

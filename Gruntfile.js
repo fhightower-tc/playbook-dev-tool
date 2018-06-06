@@ -4,7 +4,7 @@ var mkdirp = require('mkdirp');
 
 grunt.initConfig({
   app: {
-    name: 'TCS_-_JSON_Pathfinder',
+    name: 'TCS_-_Playbook_Dev_Tool',
     version: '0.1.0'
   },
 
