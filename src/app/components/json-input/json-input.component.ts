@@ -37,7 +37,7 @@ export class JsonInputComponent implements OnInit {
             this.rawInput = JSON.stringify(this.data.jsonData, null, 4);
             parseJson(this.rawInput);
             window.setTimeout(function() {
-                // TODO: hide the input modal
+                $('#inputModal').foundation('close');
                 $('.jqueryUpdateButton').each(function() {
                     $(this).click();
                 });

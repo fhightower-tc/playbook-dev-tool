@@ -51,7 +51,8 @@ export class SearchValueComponent implements OnInit {
             let _this = this;
             window.setTimeout(function() {
                 let newCursorPosition = _this.query.length - 1;
-                document.getElementById('' + _this.id).setSelectionRange(newCursorPosition, newCursorPosition);
+                // hack to get around typescript errors - see https://stackoverflow.com/questions/12989741/the-property-value-does-not-exist-on-value-of-type-htmlelement/12990166#12990166
+                (<HTMLInputElement>document.getElementById('' + _this.id)).setSelectionRange(newCursorPosition, newCursorPosition);
             }, 10);
         }
     }
@@ -59,6 +60,13 @@ export class SearchValueComponent implements OnInit {
     updateResult() {
         // this is a hack to make sure the text in the input field (with class .query) is the same as this.query. This is necessary because the text in the input field is sometimes set/changed by jquery, but this change is not tracked by angular
         this.query = $('#' + this.id).val();
+        if (this.query[0] !== '$') {
+            if (this.query[0] === '[') {
+                this.query = '$' + this.query;
+            } else {
+                this.query = '$.' + this.query;
+            }
+        }
         this.autocomplete();
         let response = this.jsonComponent.search(this.query);
         this.result = response.results[0];

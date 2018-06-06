@@ -1,6 +1,6 @@
-<button class="button" data-open="exampleModal1">Import data</button>
+<button class="button" data-open="inputModal">Import data</button>
 
-<div class="reveal" id="exampleModal1" data-reveal>
+<div class="reveal" id="inputModal" data-reveal>
   <textarea [(ngModel)]="rawInput" rows="30" placeholder="Enter some json data..." (keyup)="invalidate()"></textarea>
   <button class="button" (click)="submitJson()">Submit</button> &nbsp;<div *ngIf="data.validationStatus === 'Validated'" style="display: inline;"><p style="color: green; display: inline;">{{ data.validationStatus }}</p></div><div *ngIf="data.validationStatus === 'Unvalidated'" style="display: inline;"><p style="color: yellow; background-color: darkgrey; display: inline;">{{ data.validationStatus }}</p></div><div *ngIf="data.validationStatus !== 'Unvalidated' && data.validationStatus !== 'Validated'" style="display: inline;"><p style="color: red; display: inline;">{{ data.validationStatus }}</p></div>
 </div>
