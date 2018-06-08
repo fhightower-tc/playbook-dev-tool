@@ -28,7 +28,9 @@ export class JsonInputComponent implements OnInit {
         private data: DataService
     ) { }
 
-    ngOnInit() {}
+    ngOnInit() {
+        $('#inputModal').foundation('open');
+    }
 
     submitJson() {
         try {

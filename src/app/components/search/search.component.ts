@@ -8,7 +8,7 @@ import { DataService } from '../../services/data.service';
     styleUrls: ['./search.component.less'],
 })
 export class SearchComponent implements OnInit {
-    searchValues: string[] = [];
+    searchValues: string[] = ['a'];
 
     constructor(
         private data: DataService
