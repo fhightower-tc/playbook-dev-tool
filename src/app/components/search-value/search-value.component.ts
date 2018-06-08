@@ -43,6 +43,10 @@ export class SearchValueComponent implements OnInit {
         // TODO: implement
     }
 
+    deleteQuery() {
+        // TODO: implement
+    }
+
     autocomplete() {
         // TODO: change this to look at the last character the user typed rather than the last character in the input field (this will handle nested [] and () better)
         var lastChar = this.query[this.query.length - 1];

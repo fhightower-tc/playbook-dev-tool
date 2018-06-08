@@ -1,6 +1,6 @@
 <div>
     <div *ngFor="let searchValue of searchValues">
-        <search-value></search-value><!-- <i class="fa fa-trash-o" (click)="deleteSearchValue()"></i> -->
+        <i class="fa fa-trash-o" (click)="deleteSearchValue(searchValue)"></i><search-value></search-value>
     </div>
 
     <button class="button secondary columns" (click)="addNewSearch()">Add new search value</button>
