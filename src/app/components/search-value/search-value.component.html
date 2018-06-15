@@ -7,10 +7,11 @@
 </div>
 <div class="columns large-12">
     <div class="columns" style="display: inline;">{{ result | json }} &nbsp;<i class="fa fa-copy" title="Copy this result" (click)="copyResult()"></i></div>
-</div>
-
-<div class="columns">
     {{ error }}
 </div>
 
-<br><br><br><br><br>
+<div class="columns large-12">
+    <div class="columns large-11">
+        <input class="mapping" id="{{id}}-mapping" type="text" placeholder="Enter a mapping...">
+    </div>
+</div>

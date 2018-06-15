@@ -12,7 +12,8 @@ function parseJson(content: string) {
     var jsonData = JSON.parse(rawData);
     // parse and output the content
     $('#json-renderer').jsonPathPicker(jsonData, {
-        pathQuotesType: 'double'
+        pathQuotesType: 'double',
+        pathNotation: 'brackets'
     });
 }
 
