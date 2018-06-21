@@ -6,15 +6,21 @@ import { DataService } from '../../services/data.service';
 
 declare var $:any;
 
-function parseJson(content: string) {
+function parseJson(content: string, useBracketNotation: boolean) {
     // get the response data
     var rawData = content.replace(/'/g, '"');
     var jsonData = JSON.parse(rawData);
     // parse and output the content
-    $('#json-renderer').jsonPathPicker(jsonData, {
-        pathQuotesType: 'double',
-        pathNotation: 'brackets'
-    });
+    if (useBracketNotation) {
+        $('#json-renderer').jsonPathPicker(jsonData, {
+            pathQuotesType: 'double',
+            pathNotation: 'brackets'
+        });
+    } else {
+        $('#json-renderer').jsonPathPicker(jsonData, {
+            pathQuotesType: 'double'
+        });
+    }
 }
 
 @Component({
@@ -24,6 +30,7 @@ function parseJson(content: string) {
 })
 export class JsonInputComponent implements OnInit {
     rawInput: string = '';
+    useBracketPathNotation: boolean = true;
 
     constructor(
         private data: DataService
@@ -38,7 +45,7 @@ export class JsonInputComponent implements OnInit {
             this.data.jsonData = JSON.parse(this.rawInput);
             this.data.validationStatus = 'Validated';
             this.rawInput = JSON.stringify(this.data.jsonData, null, 4);
-            parseJson(this.rawInput);
+            parseJson(this.rawInput, this.useBracketPathNotation);
             window.setTimeout(function() {
                 $('#inputModal').foundation('close');
                 $('.jqueryUpdateButton').each(function() {
